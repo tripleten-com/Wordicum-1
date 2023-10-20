@@ -1,7 +1,7 @@
 # ya-tube-1
 
-## Создание репозитория
-1. Сделать себе репозиторий, используя данный шаблон.  
+## Creating a repository
+1. Create a repository for yourself, using this template.  
   Для этого необходимо нажать кнопку "Use this template" и выбрать пункт "Create a new repository".  
   ![image](https://user-images.githubusercontent.com/14962819/235599080-2819c72b-3161-48fe-926d-91c289941c20.png)
   
