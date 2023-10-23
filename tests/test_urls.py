@@ -15,11 +15,11 @@ def test_reverse_match(viewname, args, expected_url):
         url = reverse(viewname, args=args)
     except NoReverseMatch as e:
         raise AssertionError(
-            f"Проверьте, что в приложении `posts` в файле `posts/urls.py` "
-            f"зарегистирован url под именем `{viewname}` согласно заданию. "
+            f"Check that in the application `posts` of the `posts/urls.py` file, "
+            f"the URL has been registered under the name `{viewname}` according to the task. "
         ) from e
 
     assert url == expected_url, (
-        f"Проверьте, что в приложении `posts` в файле `posts/urls.py` "
-        f"для имени `{viewname}` установлен верный шаблон url "
+        f"Check that in the application `posts` of the `posts/urls.py` file, "
+        f"the correct URL template has been set for the name `{viewname}`. "
     )

@@ -2,21 +2,21 @@
 
 ## Creating a repository
 1. Create a repository for yourself, using this template.  
-  Для этого необходимо нажать кнопку "Use this template" и выбрать пункт "Create a new repository".  
+  Press the "Use this template" button and select the "Create a new repository" option.  
   ![image](https://user-images.githubusercontent.com/14962819/235599080-2819c72b-3161-48fe-926d-91c289941c20.png)
   
-1. Заполнить поля **Repository name** и **Description** и нажать кнопку "Create repository from template".  
+1. Fill in the **Repository name** and **Description** fields and click the "Create repository from template" button.  
   ![image](https://user-images.githubusercontent.com/14962819/235599367-6b6025e2-5ceb-4b57-87f4-8c3a2ac18a5b.png)
 
 
-## Как работать с репозиторием
-Чтобы начать выполнение задания необходимо скопировать url вашего репозитория и склонировать его себе (обратите внимание, что вы клонируете именно ваш репозиторий, а не исходный шаблон!).  
+## How to work with the repository
+To start the task, you need to copy the URL of your repository and clone it. (Please note that you are cloning your own repository, not the original template!)  
   ![image](https://user-images.githubusercontent.com/14962819/235600053-de6be309-56d5-4c5f-adc3-d466887962f6.png)
   
-### Создайте виртуальное окружение
+### Create a virtual environment
 
-1. Запустите редактор Visual Studio Code и через меню «*Файл» / «Открыть директорию»* откройте папку *Dev/ya-tube-1/*. 
-2. Запустите терминал в VS Code, удостоверьтесь, что вы работаете из директории *ya-tube-1/* (если вы работаете под Windows, убедитесь, что в терминале запущен Git Bash, а не PowerShell или что-нибудь ещё), и выполните команду:
+1. Launch the Visual Studio Code editor, and through the "*File" / "Open Directory"* menu, open the *Dev/ya-tube-1/* folder. 
+2. Launch the terminal in VS Code and make sure you work from the *ya-tube-1/* directory. If you use Windows, make sure Git Bash runs in the terminal, and not through anything else, like PowerShell. Run this command:
 - Linux/macOS
     
     ```bash
@@ -29,26 +29,26 @@
     python -m venv venv
     ```
    
-В директории *ya-tube-1/* будет развёрнуто виртуальное окружение и появится папка `venv`, в которой будут храниться все зависимости проекта, а структура файлов станет такой:
+The virtual environment will be deployed in the *wordicum-1/* directory. The `venv` folder will appear there too and will store all the project dependencies. The file structure will look like this:
 
 ```
 Dev/
  └── ya-tube-1/
      ├── tests/             Тесты Практикума, проверяющие проект
-     ├── venv/              Директория виртуального окружения
-     ├── ya-tube-1/         <-- Директория проекта
-     |   ├── ...            <-- Структура Django проекта
+     ├── venv/              Virtual environment directory
+     ├── ya-tube-1/         <-- Project directory
+     |   ├── ...            <-- Django project structure
      |   └── manage.py      
-     ├── .gitignore         Список файлов и папок, скрытых от отслеживания Git (скрытый) 
-     ├── db.json            <-- Фикстуры для базы данных    
-     ├── LICENSE            Лицензия   
-     ├── pytest.ini         Конфигурация тестов Практикума
-     ├── README.md          Описание проекта 
-     └── requirements.txt   Список зависимостей проекта
+     ├── .gitignore         List of files and folders hidden from Git tracking 
+     ├── db.json            <-- Fixtures for the database    
+     ├── LICENSE            License   
+     ├── pytest.ini         TripleTen tests configuration
+     ├── README.md          Project description 
+     └── requirements.txt   Project dependency list
 ```
 
-### Активация виртуального окружения
-в терминале перейдите в корневую директорию проекта *Dev/ya-tube-1/* и выполните команду:
+### Activation of the virtual environment
+In the terminal, navigate to the root directory of the *Dev/wordicum-1/* project and execute this command:
 - Linux/macOS
     
     ```bash
@@ -62,53 +62,53 @@ Dev/
     ```
     
 
-Теперь все команды в терминале будут предваряться строкой `(venv)`.
+Now all commands in the terminal will be preceded by the string `(venv)`.
 
-💡 Все дальнейшие команды в терминале надо выполнять с активированным виртуальным окружением.
+💡 All the following console commands must be run with the working virtual environment.
 
-Обновите pip:
+Refresh pip:
 
 ```bash
 python -m pip install --upgrade pip
 ```
 
-### Установка зависимостей из файла *requirements.txt*:
-Находясь в папке *Dev/ya-tube-1/*, выполните команду:
+### Install the dependencies from the *requirements.txt* file
+While in the *Dev/wordicum-1/* folder, execute this command:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-#### End of Support зависимостей
+#### End of support for dependencies
 
-Среди зависимостей выбраны LTS-версии зависимостей.
+The LTS versions of dependencies have been chosen.
 Для Django выбрана версия 3.2, extended support которой
-[заканчивается](https://endoflife.date/django) 1 апреля 2024 года.
+[ends](https://endoflife.date/django) on April 1, 2024.
 
-### Применение миграций
+### Using migrations
 
     
-В директории с файлом manage.py выполните команду: 
+In the directory with the "manage.py" file, run this command: 
 
 ```bash
 python manage.py migrate
 ```
 
-### Запуск проекта в dev-режиме
+### Running the project in dev mode
 
     
-В директории с файлом manage.py выполните команду: 
+In the directory with the "manage.py" file, run this command: 
 
 ```bash
 python manage.py runserver
 ```
 
-В ответ Django сообщит, что сервер запущен и проект доступен по адресу [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
+In response to the command, Django will report that the server is running and the project is available at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 
 
-### Локальный запуск тестов
-После выполнения задания необходимо локально запустить тесты. В терминале перейдите в корневую директорию проекта *Dev/ya-tube-1/* и выполните команду:
+### Local test launch
+Having finished the task, launch the local tests. In the terminal, navigate to the root directory of the *Dev/wordicum-1/* project and execute this command:
 ```shell
 pytest
 ```
-Если все тесты пройдены успешно, то проект считается выполненным. В противном случае необходимо устранить моменты, которые не прошли проверку и повторно запустить тесты.
+If all the test cases are successful, the project will be considered completed. Otherwise, you will have to fix the parts that haven't passed the tests and launch them once again.

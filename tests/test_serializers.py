@@ -4,43 +4,43 @@ try:
     from posts.models import Post
 except ImportError:
     raise AssertionError(
-        'В приложении `posts` в файле `posts/models.py` '
-        'не удаляйте модель `Post`.'
+        'In the application `posts` of the `posts/models.py` file'
+        'don't delete the model `Post`.'
     )
 
 try:
     from posts.serializers import PostSerializer
 except ImportError:
     raise AssertionError(
-        'В приложении `posts` в файле `posts/serializers.py` опишите '
-        'класс сериализатора `PostSerializer` '
+        'In the application `posts` of the `posts/serializers.py` file, '
+        'describe the serializer class `PostSerializer` '
     )
 
 
 def test_post_model_serializer():
     assert issubclass(PostSerializer, ModelSerializer), (
-        'Убедитесь, что в файле `posts/serializers.py` класс `PostSerializer` унаследован от '
-        'класса `ModelSerializer` библиотеки `rest_framework.serializers`.'
+        'Make sure that in the file `posts/serializers.py`, the class `PostSerializer` is inherited from '
+        'the `ModelSerializer` class of the library `rest_framework.serializers`.'
     )
 
     assert hasattr(PostSerializer.Meta, 'model'), (
-        'Проверьте, что в подкласс `Meta` класса `PostSerializer` добавлено поле `model`.'
+        'Check that the field `model` has been added to the subclass `Meta` of the class `PostSerializer`.'
     )
 
     assert PostSerializer.Meta.model == Post, (
-        'Проверьте, что в подклассе `Meta` класса `PostSerializer` значением поля `model` является модель `Post`.'
+        'Check that in the subclass `Meta` of the class `PostSerializer`, the value of the field `model` is the model `Post`.'
     )
 
 
 def test_fields_in_post_serializer():
     assert hasattr(PostSerializer.Meta, 'fields'), (
-        'Проверьте, что в подкласс `Meta` класса `PostSerializer` добавлено  поле `fields`.'
+        'Check that the field `fields` has been added to the subclass `Meta` of the class `PostSerializer`.'
     )
     if PostSerializer.Meta.fields != '__all__':
         assert len(PostSerializer.Meta.fields) == 3, (
-            'Проверьте, что в подклассе `Meta` класса `PostSerializer`  поле `fields` содержит все поля модели.'
+            'Check that in the subclass `Meta` of the class `PostSerializer`, the field `fields` contains all the model fields.'
         )
         for field in ('id', 'text', 'pub_date'):
             assert field in PostSerializer.Meta.fields, (
-                f'Проверьте, что в подклассе `Meta` класса `PostSerializer` в поле `fields` добавлено поле `{field}`.'
+                f'Check that in the subclass `Meta` of the class `PostSerializer`, the field `fields` contains the `{field}` field..'
             )

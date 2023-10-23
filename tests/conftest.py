@@ -24,14 +24,14 @@ def api_client():
 @pytest.fixture
 def post_create_data():
     return {
-        "text": "Текст заметки",
+        "text": "Note text",
     }
 
 
 @pytest.fixture
 def post_update_data():
     return {
-        "text": "Новый текст заметки",
+        "text": "New note text",
     }
 
 

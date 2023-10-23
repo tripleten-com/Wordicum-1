@@ -25,8 +25,8 @@ def test_post_status_code(api_client, post, method, name, args, status_code, dat
     request_method = getattr(api_client, method.lower())
     response = request_method(url, data=data)
     assert response.status_code == status_code, (
-        f"Убедитесь, что при отправке {method}-запроса на url `{url}`  "
-        f"возвращается статус-код {status_code}"
+        f"Make sure that when sending a {method} request to the URL `{url}`  "
+        f"the status code {status_code} is returned"
     )
 
 
@@ -46,8 +46,8 @@ def test_not_found_post(api_client, method, data):
 
     status_code = status.HTTP_404_NOT_FOUND
     assert response.status_code == status_code, (
-        f"Убедитесь, что при отправке {method}-запроса на url `{url}` "
-        f"для получения несуществующего объекта возвращается статус-код {status_code}"
+        f"Make sure that when sending a {method} request to the URL `{url}` "
+        f"для получения несуществующего объекта the status code {status_code} is returned"
     )
 
 
@@ -65,15 +65,15 @@ def test_bad_request_and_errors(api_client, post, method, name, args):
 
     status_code = status.HTTP_400_BAD_REQUEST
     assert response.status_code == status_code, (
-        f"Убедитесь, что при отправке {method}-запроса на url `{url}`  "
-        f"c некорректными данными, возвращается статус-код {status_code}"
+        f"Make sure that when sending a {method} request to the URL `{url}`  "
+        f"c некорректными данными, the status code {status_code} is returned"
     )
 
     data = response.json()
     expected_value = {"text": ["This field is required."]}
     assert data == expected_value, (
-        f"Убедитесь, что при отправке {method}-запроса на url `{url}`  "
-        f"c некорректными данными, в теле ответа возвращаются ошибки."
+        f"Make sure that when sending a {method} request to the URL `{url}`  "
+        f"With incorrect data, errors are returned in the body of the response."
     )
 
 
@@ -84,12 +84,12 @@ def test_posts_list(api_client, posts):
     data = response.json()
 
     assert isinstance(data, list), (
-        f"Убедитесь, что при отправке GET-запроса на url `{url}`  "
-        f"возвращается список."
+        f"Make sure that when sending a GET request to the URL `{url}`, "
+        f"a list is returned."
     )
     assert len(data) == len(posts), (
-        f"Убедитесь, что при отправке GET-запроса на url `{url}`  "
-        f"для получение списка постов возвращаются все посты."
+        f"Make sure that when sending a GET request to the URL `{url}`, "
+        f"To get a list of posts, all posts are returned."
     )
 
 
@@ -108,7 +108,7 @@ def test_serialize_post(api_client, post, method, name, args, data):
 
     data = response.json()
     assert isinstance(data, dict), (
-        f"Убедитесь, что при отправке {method}-запроса на url `{url}` возвращается словарь"
+        f"Make sure that when sending a {method} request to the URL `{url}` возвращается словарь"
     )
 
 
@@ -117,14 +117,14 @@ def test_create_post(api_client, post_create_data):
     response = api_client.post(url, data=post_create_data)
 
     assert Post.objects.count() == 1, (
-        f"Убедитесь, что при отправке POST-запроса на url `{url}`  "
-        f"для создания нового поста, объект был добавлен в БД."
+        f"Make sure that when sending a POST request to the URL `{url}`  "
+        f"for creating a new post, the object was added to the DB."
     )
 
     data = response.json()
     assert data["text"] == post_create_data["text"], (
-        f"Убедитесь, что при отправке POST-запроса на url `{url}`  "
-        f"для создания нового поста, возвращаемый словарь содержит верное значение поля `text`"
+        f"Make sure that when sending a POST request to the URL `{url}`  "
+        f"for creating a new post, the returned dictionary contains the correct field value of ` text`"
     )
 
 
@@ -134,8 +134,8 @@ def test_incorrect_create_post(api_client):
     api_client.post(url, data=empty_data)
 
     assert Post.objects.count() == 0, (
-        f"Убедитесь, что при отправке POST-запроса с некорректными данными на url `{url}`  "
-        f"для создания нового поста, объект не был добавлен в БД."
+        f"Make sure that when sending a POST request with incorrect data to the URL `{url}`"
+        f"for creating a new post, the object was not added to the DB."
     )
 
 
@@ -151,20 +151,20 @@ def test_update_post(api_client, post, post_pk_for_args, post_update_data, metho
     response = request_method(url, data=post_update_data)
 
     assert Post.objects.count() == 1, (
-        f"Убедитесь, что при отправке {method}-запроса на url `{url}`  "
-        f"для обновления поста, новый объект не был добавлен в БД."
+        f"Make sure that when sending a {method} request to the URL `{url}`  "
+        f"fo updating the post, a new object was not added to the DB."
     )
 
     post.refresh_from_db()
     assert post.text == post_update_data["text"], (
-        f"Убедитесь, что при отправке {method}-запроса на url `{url}`  "
-        f"для обновления поста, пост был обновлен в БД."
+        f"Make sure that when sending a {method} request to the URL `{url}`  "
+        f"for updating a post, the post was updated in the database."
     )
 
     data = response.json()
     assert data["text"] == post_update_data["text"], (
-        f"Убедитесь, что при отправке {method}-запроса на url `{url}`  "
-        f"для обновления поста, возвращается словарь с обновленным полем `text`"
+        f"Make sure that when sending a {method} request to the URL `{url}`  "
+        f"for updating a post, a dictionary with the updated field of `text` is returned."
     )
 
 
@@ -173,11 +173,11 @@ def test_delete_post(api_client, posts, post, post_pk_for_args):
     response = api_client.delete(url)
 
     assert Post.objects.count() == len(posts), (
-        f"Убедитесь, что при отправке DELETE-запроса на url `{url}`  "
-        f"для удаления поста, из БД удаляется указанный пост."
+        f"Ensure that when sending a DELETE request to the URL `{url}`  "
+        f"for deleting a post, the specified post is removed from the database."
     )
 
     assert response.data is None, (
-        f"Убедитесь, что при отправке DELETE-запроса на url `{url}`  "
-        f"для обновления поста, возвращается пустое тело ответа."
+        f"Ensure that when sending a DELETE request to the URL `{url}`  "
+        f"for updating the post, an empty response body is returned."
     )
