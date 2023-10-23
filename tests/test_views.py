@@ -47,7 +47,7 @@ def test_not_found_post(api_client, method, data):
     status_code = status.HTTP_404_NOT_FOUND
     assert response.status_code == status_code, (
         f"Make sure that when sending a {method} request to the URL `{url}` "
-        f"для получения несуществующего объекта the status code {status_code} is returned"
+        f"for obtaining a non-existent object, a status code is returned."
     )
 
 
@@ -66,7 +66,7 @@ def test_bad_request_and_errors(api_client, post, method, name, args):
     status_code = status.HTTP_400_BAD_REQUEST
     assert response.status_code == status_code, (
         f"Make sure that when sending a {method} request to the URL `{url}`  "
-        f"c некорректными данными, the status code {status_code} is returned"
+        f"with incorrect data, a status code {status_code} is returned."
     )
 
     data = response.json()
@@ -108,7 +108,7 @@ def test_serialize_post(api_client, post, method, name, args, data):
 
     data = response.json()
     assert isinstance(data, dict), (
-        f"Make sure that when sending a {method} request to the URL `{url}` возвращается словарь"
+        f"Make sure that when sending a {method} request to the URL `{url}` a dictionary is returned."
     )
 
 
