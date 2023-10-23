@@ -6,12 +6,12 @@
   ![image](https://user-images.githubusercontent.com/14962819/235599080-2819c72b-3161-48fe-926d-91c289941c20.png)
   
 1. Fill in the **Repository name** and **Description** fields and click the "Create repository from template" button.  
-  ![image](https://user-images.githubusercontent.com/14962819/235599367-6b6025e2-5ceb-4b57-87f4-8c3a2ac18a5b.png)
+  ![image](https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/b2b/images.png)
 
 
 ## How to work with the repository
 To start the task, you need to copy the URL of your repository and clone it. (Please note that you are cloning your own repository, not the original template!)  
-  ![image](https://user-images.githubusercontent.com/14962819/235600053-de6be309-56d5-4c5f-adc3-d466887962f6.png)
+  ![image](https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/b2b/image1.png)
   
 ### Create a virtual environment
 
@@ -34,7 +34,7 @@ The virtual environment will be deployed in the *wordicum-1/* directory. The `ve
 ```
 Dev/
  └── ya-tube-1/
-     ├── tests/             Тесты Практикума, проверяющие проект
+     ├── tests/             TripleTen tests for the project
      ├── venv/              Virtual environment directory
      ├── ya-tube-1/         <-- Project directory
      |   ├── ...            <-- Django project structure
@@ -82,7 +82,7 @@ pip install -r requirements.txt
 #### End of support for dependencies
 
 The LTS versions of dependencies have been chosen.
-Для Django выбрана версия 3.2, extended support которой
+For Django, version 3.2 was selected. Its extended support
 [ends](https://endoflife.date/django) on April 1, 2024.
 
 ### Using migrations
