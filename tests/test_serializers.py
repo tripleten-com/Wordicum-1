@@ -5,7 +5,7 @@ try:
 except ImportError:
     raise AssertionError(
         'In the application `posts` of the `posts/models.py` file'
-        'don't delete the model `Post`.'
+        'don\'t delete the model `Post`.'
     )
 
 try:
