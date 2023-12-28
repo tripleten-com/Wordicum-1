@@ -1,22 +1,11 @@
-# Wordicum-1
-
-## Creating a repository
-1. Create a repository for yourself, using this template.  
-  Press the "Use this template" button and select the "Create a new repository" option.  
-  ![image](https://user-images.githubusercontent.com/14962819/235599080-2819c72b-3161-48fe-926d-91c289941c20.png)
-  
-1. Fill in the **Repository name** and **Description** fields and click the "Create repository from template" button.  
-  ![image](https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/b2b/images.png)
-
-
 ## How to work with the repository
 To start the task, you need to copy the URL of your repository and clone it. (Please note that you are cloning your own repository, not the original template!)  
   ![image](https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/b2b/image1.png)
   
 ### Create a virtual environment
 
-1. Launch the Visual Studio Code editor, and through the "*File" / "Open Directory"* menu, open the *Dev/ya-tube-1/* folder. 
-2. Launch the terminal in VS Code and make sure you work from the *ya-tube-1/* directory. If you use Windows, make sure Git Bash runs in the terminal, and not through anything else, like PowerShell. Run this command:
+1. Launch the Visual Studio Code editor, and through the "*File" / "Open Directory"* menu, open the *Dev/wordicum-1/* folder. 
+2. Launch the terminal in VS Code and make sure you work from the *wordicum-1/* directory. If you use Windows, make sure Git Bash runs in the terminal, and not through anything else, like PowerShell. Run this command:
 - Linux/macOS
     
     ```bash
@@ -33,15 +22,15 @@ The virtual environment will be deployed in the *wordicum-1/* directory. The `ve
 
 ```
 Dev/
- └── ya-tube-1/
+ └── wordicum-1/
      ├── tests/             TripleTen tests for the project
      ├── venv/              Virtual environment directory
-     ├── ya-tube-1/         <-- Project directory
+     ├── wordicum-1/         <-- Project directory
      |   ├── ...            <-- Django project structure
      |   └── manage.py      
+     ├── .flake8        
      ├── .gitignore         List of files and folders hidden from Git tracking 
      ├── db.json            <-- Fixtures for the database    
-     ├── LICENSE            License   
      ├── pytest.ini         TripleTen tests configuration
      ├── README.md          Project description 
      └── requirements.txt   Project dependency list
@@ -79,12 +68,6 @@ While in the *Dev/wordicum-1/* folder, execute this command:
 pip install -r requirements.txt
 ```
 
-#### End of support for dependencies
-
-The LTS versions of dependencies have been chosen.
-For Django, version 3.2 was selected. Its extended support
-[ends](https://endoflife.date/django) on April 1, 2024.
-
 ### Using migrations
 
     
@@ -111,4 +94,3 @@ Having finished the task, launch the local tests. In the terminal, navigate to t
 ```shell
 pytest
 ```
-If all the test cases are successful, the project will be considered completed. Otherwise, you will have to fix the parts that haven't passed the tests and launch them once again.
