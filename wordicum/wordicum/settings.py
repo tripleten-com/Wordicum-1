@@ -33,7 +33,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'ya_tube.urls'
+ROOT_URLCONF = 'wordicum.urls'
 
 TEMPLATES = [
     {
@@ -51,7 +51,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ya_tube.wsgi.application'
+WSGI_APPLICATION = 'wordicum.wsgi.application'
 
 
 DATABASES = {
